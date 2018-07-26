@@ -1,0 +1,301 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterPage.master.vb" Inherits="WebMessenger.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Web Messenger | Home</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="Scripts/font-awesome/css/font-awesome.min.css" />
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="Scripts/dist/css/adminlte.min.css" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="Scripts/datatables/dataTables.bootstrap4.css"/>
+  
+   <%-- <link rel="stylesheet" href="Scripts/style.css" />--%>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="Default.aspx" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <!-- SEARCH FORM -->
+            <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link">
+                <img src="Scripts/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">Messenger</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <%--<img src="Scripts/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--%>
+                    </div>
+                    <div class="info">
+                        <a><label runat="server" id="lblUser" class="d-block"></label> </a>
+                         <%--<a href="#" class="d-block">Alexander Pierce</a>--%>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="Default.aspx" class="nav-link active">
+                                <i class="nav-icon fa fa-home"></i>
+                                <p>
+                                    Booking
+                                </p></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="RegisterBooking.aspx" class="nav-link">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>Register Booking</p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="Messenger_.aspx" class="nav-link">
+                                <i class="nav-icon fa fa-truck"></i>
+                                <p>
+                                    Messenger Daily
+                                </p>
+                            </a>
+                        </li>
+                         <%--  <li class="nav-item has-treeview">
+                            <a href="addCustomer.aspx" class="nav-link">
+                                <i class="nav-icon fa fa-plus"></i>
+                                <p>
+                                    Customer
+                                </p>
+                            </a>
+                        </li>
+                        --%>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-print"></i>
+                                <p>
+                                    Report  
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="FrmReport/RptMileMessenger.aspx" class="nav-link" target="_blank">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>MileMessenger</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="FrmReport/RptMessengerBooking.aspx" class="nav-link" target="_blank">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>JobMessenger</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                       <%--   <li class="nav-item has-treeview">
+                            <a href="TestCode.aspx" class="nav-link">
+                                <i class="fa fa-tags nav-icon"></i>
+                                <p>
+                                    Test
+                                </p>
+                            </a>
+                        </li>--%>
+                        <li class="nav-item has-treeview">
+                            <a href="Logout.aspx" class="nav-link">
+                                <i class="nav-icon fa ion-log-out"></i>
+                                <p>
+                                    Logout
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+      
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-block-down">
+                Anything you want
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2007-2018 <a href="http://eaglesthai.com/">Eagles Air & Sea</a>.</strong> All rights
+            reserved.
+        </footer>
+        
+        <%--<div class="scrollup">
+             <a href="#" >
+                 <i class="fa fa-chevron-up">
+
+                 </i>
+             </a>
+        </div>
+      --%>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="Scripts/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="Scripts/datatables/jquery.dataTables.js"></script>
+    <script src="Scripts/datatables/dataTables.bootstrap4.js"></script>
+    <!-- SlimScroll -->
+    <script src="Scripts/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="Scripts/dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="Scripts/chart.js/Chart.min.js"></script>
+    <script src="Scripts/dist/js/demo.js"></script>
+    <script src="Scripts/dist/js/pages/dashboard3.js"></script>
+    <!-- FastClick -->
+    <script src="Scripts/fastclick/fastclick.js"></script>
+    <%-- <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>--%>
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+     <script type='text/javascript'>
+         function openModal() {
+             $('#exampleModal').modal('show');
+         }
+         function openModalEdit() {
+             $('#myModalEdit').modal('show');
+         }
+         function openmyModal1() {
+             $('#confirmModal').modal('show');
+         }
+    </script>
+      
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            // scroll body to 0px on click
+            $('#back-to-top').click(function () {
+                $('#back-to-top').tooltip('hide');
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+
+            $('#back-to-top').tooltip('show');
+
+        });
+    </script>
+    <script type = "text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Do you want to save data?")) {
+                confirm_value.value = "Yes";
+            } else {
+                confirm_value.value = "No";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
+    <script type="text/javascript">
+        function makeTableScroll() {
+            // Constant retrieved from server-side via JSP
+            var maxRows = 4;
+
+            var table = document.getElementById('myTable');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        }
+    </script>
+</body>
+</html>
