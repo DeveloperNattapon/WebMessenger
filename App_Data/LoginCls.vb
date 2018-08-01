@@ -15,11 +15,12 @@ Public Class LoginCls
     Public Shared EncryptPass As String = "eagles"
 
     Public Shared Function chkUser(userid As String, password As String) As Boolean
-        'Using db = New DB_EaglesInternalEntities
-        Using db = New DB_EaglesIntemalEntities_test
+        'Using db As New DB_EaglesInternalE01
+        Using db = New DB_EaglesInternalEntities
+            'Using db = New DB_EaglesIntemalEntities_test
             Dim PassEn As String = Encrypt(password, EncryptPass)
 
-            Dim q = (From p In db.tblUsers _
+            Dim q = (From p In db.tblUser _
                Where p.UserId.ToUpper() = userid And p.Password = PassEn
                Select p).Count()
             If (q > 0) Then

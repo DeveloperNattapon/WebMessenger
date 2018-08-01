@@ -15,9 +15,9 @@ Imports System.Net
 
 Public Class Booking
     Inherits System.Web.UI.Page
-
-    Dim db As New DB_EaglesIntemalEntities_test
-    'Dim db As New DB_EaglesInternalEntities
+    'Dim db As New DB_EaglesInternalE01
+    'Dim db As New DB_EaglesIntemalEntities_test
+    Dim db As New DB_EaglesInternalEntities
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 

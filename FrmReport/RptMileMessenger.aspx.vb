@@ -18,11 +18,13 @@ Public Class RptMileMessenger
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         If Not IsPostBack Then
-            Using db = New DB_EaglesInternalEntities
+            Using db As New DB_EaglesInternalE01
+                'Using db = New DB_EaglesInternalEntities
+                'Using db = New DB_EaglesIntemalEntities_test
                 Dim menu As String = "Messenger Booking"
                 Dim id As String = Session("UserID").ToString
 
-                Dim ds = (From c In db.tblUserMenu Where c.UserID = id And c.Menu = menu And c.Save_ = 1).FirstOrDefault
+                Dim ds = (From c In db.tblUserMenus Where c.UserID = id And c.Menu = menu And c.Save_ = 1).FirstOrDefault
                 If IsNothing(ds) Then
                     ScriptManager.RegisterStartupScript(Me, Me.GetType(), "redirect", "alert('คุณไม่มีสิทธิ์เข้าเมนูนี้ครับ'); window.location='" + Request.ApplicationPath + "Default.aspx'; ", True)
                 Else
@@ -46,19 +48,24 @@ Public Class RptMileMessenger
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim date1 As Date = DateTime.ParseExact(txtDate1.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
         Dim Name As String = ddlMess.Text
-        Using db = New DB_EaglesInternalEntities
+        Using db As New DB_EaglesInternalE01
 
-            Dim results = (From c In db.tblMessenger Join d In db.tblBookingMessengers On c.Name Equals d.Messenger And c.MessDate Equals d.BookingDate
-                       Where c.MessDate = date1 And c.Name = Name Order By c.MessDate Ascending
-                       Select New With {c.TimeOut,
-                                        c.TimeIn,
-                                        c.MileIn,
-                                        c.MileOut,
-                                        d.CustomerName,
-                                        d.Location,
-                                        d.Status,
-                                        d.JobDesc
-                                       }).ToList
+       
+            'Using db = New DB_EaglesInternalEntities
+            'Using db As New DB_EaglesIntemalEntities_test
+
+
+            Dim results = (From c In db.tblMessengers Join d In db.tblBookingMessengers On c.Name Equals d.Messenger And c.MessDate Equals d.BookingDate
+                   Where c.MessDate = date1 And c.Name = Name Order By c.MessDate Ascending
+                   Select New With {c.TimeOut,
+                                    c.TimeIn,
+                                    c.MileIn,
+                                    c.MileOut,
+                                    d.CustomerName,
+                                    d.Location,
+                                    d.Status,
+                                    d.JobDesc
+                                   }).ToList
             If results.Count > 0 Then
 
                 'Dim rpt As New ReportDocument()

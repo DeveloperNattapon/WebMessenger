@@ -12,7 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblBookingMessenger
     Public Property RecNo As Decimal
-    Public Property BookingDate As Nullable(Of Date)
+    Public Property BookingDate As Date
     Public Property BookingTime As String
     Public Property CusTel As String
     Public Property ContactPerson As String
@@ -32,7 +32,7 @@ Partial Public Class tblBookingMessenger
     Public Property ReceiveBy As String
     Public Property StatusJob As Nullable(Of Integer)
     Public Property CreateBy As String
-    Public Property CreateDate As Nullable(Of Date)
+    Public Property CreateDate As Date
     Public Property UpdateBy As String
     Public Property UpdateDate As Nullable(Of Date)
 

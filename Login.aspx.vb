@@ -9,9 +9,9 @@ Imports System.Globalization
 
 Public Class Login
     Inherits System.Web.UI.Page
-
-    Dim db As New DB_EaglesIntemalEntities_test
-    'Dim db As New DB_EaglesInternalEntities
+    'Dim db As New DB_EaglesInternalE01
+    'Dim db As New DB_EaglesIntemalEntities_test
+    Dim db As New DB_EaglesInternalEntities
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         'Dim UserID As New HttpCookie("UserID")
@@ -31,7 +31,7 @@ Public Class Login
         Dim menu As String = "Messenger Booking"
         If LoginCls.chkUser(txtUserName.Value, txtUserPass.Value) Then
            
-            Dim ds = (From c In db.tblUsers
+            Dim ds = (From c In db.tblUser
                            Where c.UserId = txtUserName.Value.Trim
                            Select New With
                            {
@@ -41,7 +41,7 @@ Public Class Login
                                 c.Surname_thai,
                                 c.Name_eng
                              }).FirstOrDefault()
-            Dim ds1 = (From c In db.tblUserMenus Where c.UserID = ds.UserId And c.Menu = menu And c.Read_ = 1).FirstOrDefault
+            Dim ds1 = (From c In db.tblUserMenu Where c.UserID = ds.UserId And c.Menu = menu And c.Read_ = 1).FirstOrDefault
                 If Not IsNothing(ds1) Then
                     Session("UserID") = txtUserName.Value.Trim
                     Session("Prefix_thai") = ds.Prefix_thai
@@ -49,7 +49,7 @@ Public Class Login
                     Session("Surname_thai") = ds.Surname_thai
                     Session("Name_eng") = ds.Name_eng
                     'Response.Redirect(Request.Cookies("MessConfigPath").Value & "Default.aspx")
-                    Response.Redirect("~/Default.aspx")
+                Response.Redirect("~/Default_.aspx")
                 Else
                     lblMsg.Text = "* You do not have access"
                 End If

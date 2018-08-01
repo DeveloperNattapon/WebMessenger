@@ -13,11 +13,16 @@ Imports System.Globalization
 
 Public Class RptMessengerBooking
     Inherits System.Web.UI.Page
-    Dim rpt As New ReportDocument()
+
+    Private rpt As New ReportDocument
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            'Using db As New DB_EaglesInternalE01
+
+
             Using db = New DB_EaglesInternalEntities
+                'Using db = New DB_EaglesIntemalEntities_test
                 Dim menu As String = "Messenger Booking"
                 Dim id As String = Session("UserID").ToString
 
@@ -49,8 +54,10 @@ Public Class RptMessengerBooking
 
         Dim date1 As Date = DateTime.ParseExact(txtDate1.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
         Dim date2 As Date = DateTime.ParseExact(txtDate2.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
+        'Using db As New DB_EaglesInternalE01
 
         Using db = New DB_EaglesInternalEntities
+            'Using db = New DB_EaglesIntemalEntities_test
             Try
 
                 Dim results = (From c In db.tblBookingMessengers

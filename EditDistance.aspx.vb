@@ -6,12 +6,14 @@ Imports System.Globalization
 Imports System.Text
 Imports System.Linq
 Imports System.IO
+Imports Microsoft.VisualBasic
 
 
 Public Class EditDistance
     Inherits System.Web.UI.Page
-    Dim db As New DB_EaglesIntemalEntities_test
-    'Dim db As New DB_EaglesInternalEntities
+    'Dim db As New DB_EaglesInternalE01
+    'Dim db As New DB_EaglesIntemalEntities_test
+    Dim db As New DB_EaglesInternalEntities
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
@@ -28,7 +30,7 @@ Public Class EditDistance
 
         Dim name As String = Session("Prefix_thai").ToString + " " + Session("Name_thai").ToString + " " + Session("Surname_thai").ToString
         Try
-            Dim ds = (From c In db.tblMessengers Where c.MessDate = dateMess And c.Name = name).FirstOrDefault
+            Dim ds = (From c In db.tblMessenger Where c.MessDate = dateMess And c.Name = name).FirstOrDefault
             'Dim dateM As Date = DateTime.ParseExact(CStr(ds.MessDate), "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
             If String.IsNullOrEmpty(CStr(ds.MessDate)) Then
                 MsgBox("เป็นค่าวว่าง")
@@ -42,7 +44,7 @@ Public Class EditDistance
         Catch ex As Exception
             MsgBox("Error", MsgBoxStyle.Critical)
         End Try
-        
+
 
     End Sub
 

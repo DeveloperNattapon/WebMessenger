@@ -12,11 +12,13 @@ Imports CrystalDecisions.CrystalReports.Engine
 Imports System.Globalization
 Imports System.Text
 Imports System.Net
+Imports Microsoft.VisualBasic
 
 Public Class _Default
     Inherits System.Web.UI.Page
-    Dim db As New DB_EaglesIntemalEntities_test
-    'Dim db As New DB_EaglesInternalEntities
+    'Dim db As New DB_EaglesInternalE01
+    'Dim db As New DB_EaglesIntemalEntities_test
+    Dim db As New DB_EaglesInternalEntities
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
             txtBookingBy.Text = Session("Name_thai").ToString
@@ -56,7 +58,7 @@ Public Class _Default
         Catch ex As Exception
 
         End Try
-       
+
     End Sub
 
     Protected Sub btnConfirm_Click(sender As Object, e As EventArgs)
@@ -84,6 +86,7 @@ Public Class _Default
         End If
 
     End Sub
+
     Private Sub show_Customer()
         Dim dt As Date = DateTime.ParseExact("25/07/2018", "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
         Try
@@ -103,11 +106,11 @@ Public Class _Default
         End Try
     End Sub
 
-   
+
 
     Protected Sub showCustomer_ItemDataBound(sender As Object, e As RepeaterItemEventArgs)
         If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
-             
+
             'Dim lblRecno As Label = DirectCast(e.Item.FindControl("lblRecno"), Label)
             '   If Not IsNothing(lblRecno) Then
             '       lblRecno.Text = DataBinder.Eval(e.Item.DataItem, "Recno").ToString()
@@ -116,7 +119,7 @@ Public Class _Default
             If Not IsNothing(lblCustomerName) Then
                 lblCustomerName.Text = DataBinder.Eval(e.Item.DataItem, "CustomerName").ToString()
             End If
-       
+
             Dim lblContactPerson As Label = DirectCast(e.Item.FindControl("lblContactPerson"), Label)
             If Not IsNothing(lblContactPerson) Then
                 lblContactPerson.Text = DataBinder.Eval(e.Item.DataItem, "ContactPerson").ToString()

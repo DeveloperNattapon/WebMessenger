@@ -4,18 +4,20 @@ Option Explicit On
 Imports System.Linq
 Imports System.Data
 Imports System.Globalization
+Imports System.DateTime
 
 Public Class Messenger_
     Inherits System.Web.UI.Page
-    Dim db As New DB_EaglesIntemalEntities_test
-    'Dim db As New DB_EaglesInternalEntities
+    'Dim db As New DB_EaglesInternalE01
+    'Dim db As New DB_EaglesIntemalEntities_test
+    Dim db As New DB_EaglesInternalEntities
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
 
             Dim menu As String = "Messenger Booking"
             Dim id As String = Session("UserID").ToString
 
-            Dim ds = (From c In db.tblUserMenus Where c.UserID = id And c.Menu = menu And c.Save_ = 1).FirstOrDefault
+            Dim ds = (From c In db.tblUserMenu Where c.UserID = id And c.Menu = menu And c.Save_ = 1).FirstOrDefault
             If IsNothing(ds) Then
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "redirect", "alert('คุณไม่มีสิทธิ์เข้าเมนูนี้ครับ'); window.location='" + Request.ApplicationPath + "Default.aspx'; ", True)
             Else
@@ -30,7 +32,7 @@ Public Class Messenger_
     Private Sub BindData()
         Dim Name As String = Session("Prefix_thai").ToString & " " & Session("Name_thai").ToString + " " + Session("Surname_thai").ToString
         'Where c.Name.Contains(Name)
-        Dim ds = (From c In db.tblMessengers Where c.Name.Contains(Name) Order By c.MessDate Descending
+        Dim ds = (From c In db.tblMessenger Where c.Name.Contains(Name) Order By c.MessDate Descending
                      Select New With {
                          c.MessDate, c.MileIn, c.MileOut, c.Name, _
                          c.TimeIn, c.TimeOut}).ToList()
@@ -77,7 +79,7 @@ Public Class Messenger_
 
         Dim messdate As Date = DateTime.ParseExact(lblMessDate.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
 
-        Dim Messenger As tblMessenger = (From c In db.tblMessengers _
+        Dim Messenger As tblMessenger = (From c In db.tblMessenger _
                         Where c.Name = lblName.Text And c.MessDate = messdate _
                         Select c).First()
         Messenger.TimeOut = txtTimeOut.Text.Trim
@@ -142,7 +144,7 @@ Public Class Messenger_
             ScriptManager.RegisterClientScriptBlock(Me, Me.GetType(), "alertMessage", "alert('กรุณาระบุเลขไมล์เข้า');", True)
         Else
             Try
-                db.tblMessengers.Add(New tblMessenger() With { _
+                db.tblMessenger.Add(New tblMessenger() With { _
                   .MessDate = DateTime.ParseExact(txtMessDate.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US")), _
                   .Name = lblNameAdd.Text.Trim, _
                   .TimeOut = txtTimeOutAdd.Text.Trim, _
