@@ -17,17 +17,18 @@ Public Class Default_
     End Sub
     Private Sub BindData(ByVal date1 As String, ByVal date2 As String, branch As String, mess As String)
 
-        'If mess = "ทุกคน" Then
-        '    mess = ""
-        'End If
-        'If branch = "ทุกสาขา" Then
-        '    branch = ""
-        'End If
-        Dim dt1 As Date = DateTime.ParseExact("01/01/2018", "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
-        'Dim dt2 As Date = DateTime.ParseExact(date2, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
+        If mess = "ทุกคน" Then
+            mess = ""
+        End If
+        If branch = "ทุกสาขา" Then
+            branch = ""
+        End If
+        Dim dt1 As Date = DateTime.ParseExact(date1, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
+        Dim dt2 As Date = DateTime.ParseExact(date2, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"))
         'And c.BookingDate <= dt2 And c.Branch.Contains(branch) And c.Messenger.Contains(mess) Order By c.RecNo Descending
 
-        Dim ds = (From c In db.tblBookingMessengers Where c.BookingDate = dt1
+        Dim ds = (From c In db.tblBookingMessengers Where c.BookingDate >= dt1 _
+                  And c.BookingDate <= dt2 And c.Branch.Contains(branch) And c.Messenger.Contains(mess) Order By c.RecNo Descending
                      Select New With {
                          c.RecNo, c.BookingDate, c.CustomerName, c.Location, _
                          c.BookingBy, c.Messenger, c.Status
