@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="RptMessengerBooking.aspx.vb" Inherits="WebMessenger.RptMessengerBooking" %>
+﻿<%@ Page Language="vb" AutoEventWireup="true" CodeBehind="RptMessengerBooking.aspx.vb" Inherits="WebMessenger.RptMessengerBooking" %>
 
 <%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>

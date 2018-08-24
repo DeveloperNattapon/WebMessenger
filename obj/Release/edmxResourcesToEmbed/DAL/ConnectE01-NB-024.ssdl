@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DB_EaglesIntemalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DB_EaglesInternalModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Branch">
     <Key>
       <PropertyRef Name="BranchID" />
@@ -7,7 +7,6 @@
     <Property Name="BranchID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="BranchName" Type="varchar" MaxLength="200" />
     <Property Name="Status" Type="varchar" MaxLength="50" />
-    <Property Name="UserId" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Department">
     <Key>
@@ -104,15 +103,6 @@
     <Property Name="Status" Type="varchar" MaxLength="50" />
     <Property Name="BranchID" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_EaglesIntemal.dbo.Status' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="Status">
-    <Key>
-      <PropertyRef Name="StatusID" />
-    </Key>
-    <Property Name="StatusID" Type="int" Nullable="false" />
-    <Property Name="StatusName" Type="varchar" MaxLength="50" />
-  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -176,7 +166,7 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.Status' does not have a prima
     <Property Name="Docsta" Type="varchar" MaxLength="30" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblAccessList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_EaglesInternal.dbo.tblAccessList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tblAccessList">
     <Key>
       <PropertyRef Name="AccessNo" />
@@ -210,7 +200,7 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblAccessList' does not have 
     <Property Name="ReceiveDate" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblAccessListDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_EaglesInternal.dbo.tblAccessListDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tblAccessListDetail">
     <Key>
       <PropertyRef Name="AccessNo" />
@@ -261,7 +251,7 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblAccessListDetail' does not
     <Property Name="ReceiveBy" Type="varchar" MaxLength="100" />
     <Property Name="StatusJob" Type="int" />
     <Property Name="CreateBy" Type="varchar" MaxLength="30" />
-    <Property Name="CreateDate" Type="date" />
+    <Property Name="CreateDate" Type="datetime" />
     <Property Name="UpdateBy" Type="varchar" MaxLength="30" />
     <Property Name="UpdateDate" Type="datetime" />
   </EntityType>
@@ -272,21 +262,8 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblAccessListDetail' does not
     <Property Name="CaseJobID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CaseName" Type="varchar" MaxLength="70" />
   </EntityType>
-  <EntityType Name="tblCustomerList">
-    <Key>
-      <PropertyRef Name="CustomerName" />
-    </Key>
-    <Property Name="CustomerName" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="CustomerTel" Type="nchar" MaxLength="20" />
-    <Property Name="ContactPerson" Type="nchar" MaxLength="50" />
-    <Property Name="Location" Type="nchar" MaxLength="200" />
-    <Property Name="CreateBy" Type="nchar" MaxLength="30" />
-    <Property Name="CreateDate" Type="date" />
-    <Property Name="UpdateBy" Type="nchar" MaxLength="30" />
-    <Property Name="UpdateDate" Type="date" />
-  </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblDivision' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_EaglesInternal.dbo.tblDivision' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tblDivision">
     <Key>
       <PropertyRef Name="DivisionId" />
@@ -307,7 +284,7 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblDivision' does not have a 
     <Property Name="Updatedate" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_EaglesInternal.dbo.tblIDRecording' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tblIDRecording">
     <Key>
       <PropertyRef Name="recordingID" />
@@ -375,6 +352,15 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have
     <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="RunNo" Type="int" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'DB_EaglesInternal.dbo.tbltimeuser' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tbltimeuser">
+          <Property Name="CodeID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Typenotcome" Type="nvarchar" MaxLength="255" />
+          <Property Name="day" Type="int" />
+          <Property Name="hr" Type="int" />
+          <Property Name="mi" Type="int" />
+        </EntityType>-->
   <EntityType Name="tblUser">
     <Key>
       <PropertyRef Name="UserId" />
@@ -399,7 +385,6 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have
     <Property Name="NickName" Type="varchar" MaxLength="20" />
     <Property Name="Approve1" Type="varchar" MaxLength="10" />
     <Property Name="Approve2" Type="varchar" MaxLength="10" />
-    <Property Name="StatusID" Type="int" />
   </EntityType>
   <EntityType Name="tblUserGroup">
     <Key>
@@ -441,18 +426,6 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have
     <Property Name="EditBy" Type="varchar" MaxLength="50" />
     <Property Name="EditDate" Type="datetime" />
   </EntityType>
-  <Association Name="FK_Branch_tblUser">
-    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
-    <End Role="Branch" Type="Self.Branch" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblUser">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="Branch">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Department_Side">
     <End Role="Side" Type="Self.Side" Multiplicity="0..1" />
     <End Role="Department" Type="Self.Department" Multiplicity="*" />
@@ -501,7 +474,7 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DB_EaglesIntemalModelStoreContainer">
+  <EntityContainer Name="DB_EaglesInternalModel1StoreContainer">
     <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
@@ -514,7 +487,6 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have
     <EntitySet Name="tblAbsent" EntityType="Self.tblAbsent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblBookingMessenger" EntityType="Self.tblBookingMessenger" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblCaseJob" EntityType="Self.tblCaseJob" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tblCustomerList" EntityType="Self.tblCustomerList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblFileIT" EntityType="Self.tblFileIT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblItJobDoc" EntityType="Self.tblItJobDoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblMenu" EntityType="Self.tblMenu" Schema="dbo" store:Type="Tables" />
@@ -524,12 +496,6 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have
     <EntitySet Name="tblUserGroup" EntityType="Self.tblUserGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUserMenu" EntityType="Self.tblUserMenu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUsername" EntityType="Self.tblUsername" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Status" EntityType="Self.Status" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Status].[StatusID] AS [StatusID], 
-    [Status].[StatusName] AS [StatusName]
-    FROM [dbo].[Status] AS [Status]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="tblAccessList" EntityType="Self.tblAccessList" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [tblAccessList].[AccessNo] AS [AccessNo], 
@@ -598,10 +564,6 @@ warning 6002: The table/view 'DB_EaglesIntemal.dbo.tblIDRecording' does not have
     [tblIDRecording].[recording_Time] AS [recording_Time]
     FROM [dbo].[tblIDRecording] AS [tblIDRecording]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK_Branch_tblUser" Association="Self.FK_Branch_tblUser">
-      <End Role="tblUser" EntitySet="tblUser" />
-      <End Role="Branch" EntitySet="Branch" />
-    </AssociationSet>
     <AssociationSet Name="FK_Department_Side" Association="Self.FK_Department_Side">
       <End Role="Side" EntitySet="Side" />
       <End Role="Department" EntitySet="Department" />

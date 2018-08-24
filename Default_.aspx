@@ -24,6 +24,7 @@
         </section>
         <!-- Main content -->
         <section class="content">
+            <div class="row">
             <div class="container-fluid">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
@@ -97,10 +98,7 @@
                 <!-- /.card-body -->
             </div>
          </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-        <section class="content">
+    </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

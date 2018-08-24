@@ -1124,7 +1124,7 @@
       <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblBookingMessenger.vb">
-      <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
+      <DependentUpon>DB_EaglesInternal.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblCaseJob.vb">
       <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
@@ -1148,19 +1148,19 @@
       <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblMessenger.vb">
-      <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
+      <DependentUpon>DB_EaglesInternal.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblRunningNumber.vb">
       <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblUser.vb">
-      <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
+      <DependentUpon>DB_EaglesInternal.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblUserGroup.vb">
       <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblUserMenu.vb">
-      <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
+      <DependentUpon>DB_EaglesInternal.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\tblUsername.vb">
       <DependentUpon>ConnectE01-NB-024.tt</DependentUpon>
