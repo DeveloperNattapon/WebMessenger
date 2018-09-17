@@ -104,13 +104,22 @@ Partial Public Class Default_
     Protected WithEvents showBooking As Global.System.Web.UI.WebControls.Repeater
 
     '''<summary>
-    '''UpdatePanel1 control.
+    '''EndCustomerPanel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+    Protected WithEvents EndCustomerPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''EndCustomerUpdatePanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents EndCustomerUpdatePanel As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''txtRecno control.

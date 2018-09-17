@@ -71,7 +71,7 @@
                     <label class="col-sm-2 control-label" for="txtCustomerName" >บริษัทผู้ติดต่อ</label>
                <div class="row">
                     <div class="col-md-6">
-                        <asp:TextBox CssClass="form-control" ID="txtCustomerName" runat="server" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control-sm" ID="txtCustomerName" runat="server" autocomplete="off"></asp:TextBox>
                     </div>
                     
                     <div class="col-md-3">     

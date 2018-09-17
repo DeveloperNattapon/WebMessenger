@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" for="txtSearchDate">สาขา</label>
                                     <div class="col-md-6">
-                                        <asp:DropDownList ID="ddlBranchSearch" runat="server" CssClass="form-control">
+                                        <asp:DropDownList ID="ddlBranchSearch" runat="server" CssClass="form-control input-sm">
                                             <asp:ListItem>ทุกสาขา</asp:ListItem>
                                             <asp:ListItem>SPM</asp:ListItem>
                                             <asp:ListItem>PTN</asp:ListItem>
@@ -170,18 +170,15 @@
             <!-- /.row -->
         </section>
         <!-- /.content -->
-
-        <!-- Modal modal hind fade -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog card card-primary" role="document">
+        <asp:Panel ID="EndCustomerPanel" runat="server" CssClass="modal" TabIndex="-1" role="dialog" aria-labelledby="myLabe1">
+            <div class="modal-dialog modal-lg" role="dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Booking</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Edit Booking</h4>
                     </div>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <asp:UpdatePanel ID="EndCustomerUpdatePanel" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <div class="modal-body">
                                 <fieldset>
@@ -346,20 +343,15 @@
                                     </form>
                                 </fieldset>
                             </div>
-
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <asp:Button Type="button" CssClass="btn btn-primary" runat="server" Text="Save changes" OnClick="btnSaveChange_Click" ID="btnSaveChange"></asp:Button>
                             </div>
                         </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="showBooking" />
-                            <%-- <asp:AsyncPostBackTrigger ControlID="btnSaveChange" />--%>
-                        </Triggers>
                     </asp:UpdatePanel>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
     </form>
 
 </asp:Content>
